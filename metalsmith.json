@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "site": "Matthew Ferry",
-    "description": "I make things."
+    "site": "Simple presentation",
+    "description": "An html slide presentation."
   },
-  "destination": "./dist",
+  "destination": "dist",
   "clean": false,
   "plugins": {
     "metalsmith-markdown-remarkable": {
