@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "site": "Matthew Ferry",
+    "description": "I make things."
+  },
+  "destination": "./dist",
+  "clean": false,
+  "plugins": {
+    "metalsmith-markdown-remarkable": {
+      "html": true
+    },
+    "metalsmith-permalinks": {
+      "relative": false
+    },
+    "metalsmith-layouts": {
+      "engine": "nunjucks",
+      "default": "default.html",
+      "pattern": ["**/*.md", "**/*.html"]
+    },
+    "metalsmith-postcss": {
+      "plugins": {
+        "postcss-import": {},
+        "cssnano": {
+          "autoprefixer": false
+        }
+      }
+    },
+    "metalsmith-express": {
+      "liveReload": true,
+      "liveReloadPort": 35729
+    },
+    "metalsmith-watch": {
+      "livereload": true
+    }
+  }
+}

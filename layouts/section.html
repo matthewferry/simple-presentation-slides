@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ title | default(site) }} · Onboarding preso</title>
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link href="/styles.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="description" content="{{ description }}">
+
+</head>
+<body class="d-flex flex-column flex-justify-center p-3 bg-gray">
+  <header class="mx-auto col-12 col-md-10 my-3 text-center" role="banner">
+    {% if subheader %}
+      <h2 class="h4 text-mono text-normal text-center text-gray">{{ subheader }}</h2>
+    {% endif %}
+    <h1 class="alt-h2 text-bold my-2">{{ header }}</h1>
+  </header>
+
+  <article class="mx-auto col-12 col-md-10 markdown-body" role="main">
+    {% block content %}
+      {{ contents | safe }}
+    {% endblock %}
+  </article>
+
+  {% if next or previous %}
+    <nav class="position-absolute bottom-0 right-0 {% if loud %}bg-white{% else %}bg-gray-dark{% endif %}" role="navigation">
+      {% if next %}
+        <a id="navigateNext" href="/{{ next }}" class="p-3 float-right {% if not loud %}text-white{% endif %}">Next →</a>
+      {% endif %}
+      {% if previous %}
+        <a id="navigatePrevious" href="/{{ previous }}" class="p-3 float-left {% if not loud %}text-white{% endif %}">← Previous</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+  <script>
+    document.addEventListener("keydown", function(event) {
+      var previousSlide = document.getElementById('navigatePrevious');
+      var nextSlide = document.getElementById('navigateNext');
+
+      if (previousSlide && (event.keyCode === 37 || event.keyCode === 38)) {
+        previousSlide.click();
+      } else if (nextSlide && (event.keyCode === 39 || event.keyCode === 40)) {
+        nextSlide.click();
+      }
+    });
+  </script>
+</body>
+</html>

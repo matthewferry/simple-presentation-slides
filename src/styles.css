@@ -1,0 +1,5 @@
+@import "primer/build/build.css";
+
+svg {
+  fill: currentColor;
+}
