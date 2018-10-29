@@ -16,7 +16,7 @@
     {% if subheader %}
       <div class="text-mono text-gray-light">{{ subheader }}</div>
     {% endif %}
-    <h1>{{ header }}</h1>
+    <h1>{{ header | default(title) }}</h1>
   </header>
   <article class="mx-auto col-12 col-md-10 flex-auto markdown-body" role="main">
     {% block content %}
