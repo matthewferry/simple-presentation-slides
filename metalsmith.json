@@ -4,7 +4,7 @@
     "description": "An html slide presentation."
   },
   "destination": "dist",
-  "clean": false,
+  "clean": true,
   "plugins": {
     "metalsmith-markdown-remarkable": {
       "html": true
