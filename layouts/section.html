@@ -16,7 +16,7 @@
     {% if subheader %}
       <h2 class="h4 text-mono text-normal text-center text-gray">{{ subheader }}</h2>
     {% endif %}
-    <h1 class="alt-h2 text-bold my-2">{{ header }}</h1>
+    <h1 class="alt-h2 text-bold my-2">{{ header | default(title) }}</h1>
   </header>
 
   <article class="mx-auto col-12 col-md-10 markdown-body" role="main">

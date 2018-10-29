@@ -16,7 +16,7 @@
     {% if subheader %}
       <div class="text-mono text-{% if loud %}white{% else %}gray-light{% endif %} pb-3">{{ subheader }}</div>
     {% endif %}
-    <h1 class="alt-h1 lh-condensed col-12 col-md-9">{{ header }}</h1>
+    <h1 class="alt-h1 lh-condensed col-12 col-md-9">{{ header | default(title) }}</h1>
   </header>
 
   <article class="mx-auto col-12 col-md-10 markdown-body my-3" role="main">
